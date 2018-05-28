@@ -1,0 +1,10 @@
+Créer une variable tabulaire contenant 8 prénoms masculins
+Créer une variable tabulaire contenant 8 prénoms féminins.
+Créer une variable tabulaire combinant les éléments ces deux tableaux
+Grâce à la méthode filter et à une fonction de rappel, stocker dans 
+une 4e variable tabulaire tous les prénoms commençant par 'e' 
+(de façon insensible à la casse)
+Vérifier si Eric fait partie de ces valeurs.
+
+
+

@@ -1,0 +1,126 @@
+Nouveautés ES6 et ES7 (Ecmascript 2015 et Ecmascript 2016)
+----------------------------------------------------------
+
+Déclarations
+~~~~~~~~~~~~
+Historiquement via le mot-clé var.
+
+Aujourd'hui, utiliser plutôt let pour déclarer des variables sans utiliser
+le "hoisting" (et donc avoir des variables de portée structure).
+
+Pour déclarer des constantes, utiliser le mot-clé const.
+
+Opérateurs
+~~~~~~~~~~
+ES2016 a ajouté l'opérateur ** qui permet d'élever le nombre qui le précède
+à la puissance du nombre qui le suit.
+2 au cube: 2 ** 3 
+
+Template strings
+~~~~~~~~~~~~~~~~
+"Modèles de texte" dans lesquels l'interpolation est possible via ${nomVariable}.
+Encadrées par ``
+
+Tableaux
+~~~~~~~~
+Nouvelle structure de parcours des valeurs d'un tableau: for(... of ...)
+Nouvelle méthode find dans le prototype Array
+Nouvelle méthode includes dans le prototype Array (ES2016)
+Décomposition (destructuration)
+
+
+Fonctions
+~~~~~~~~~
+Valeurs par défaut autorisées dans la déclaration des Fonctions
+"Nommage" de paramètres
+Paramètre pour le reste des valeurs transmise
+Fonctions flèches, nouvelle syntaxe pour définir des fonctions anonymes + différence sur la variable this dans la fonction.
+Avec une fonction "traditionnelle", this dépend du contexte de l'appel; 
+avec une fonction flèche, this dépend du contexte de définition de la fonction.
+
+Objets
+~~~~~~
+Propriétés raccourcies à la définition à partir de variables
+Définitions raccourcies de variables à partir d'atributs
+Définition de méthodes optimisée
+Object.assign(obj1,obj2,...)
+
+Maps / WeakMaps 
+~~~~~~~~~~~~~~~
+Objets Javascript équivalents à des tableaux associatifs (tableaux dont les
+clés sont des valeurs quelconques) ou des dictionnaires.
+
+Sets / WeakSets
+~~~~~~~~~~~~~~~
+Collections de valeurs diverses (objets ou données primitives) sans doublon.
+
+Classes
+~~~~~~~
+Sucre syntaxique permettant une approche OO plus classique de nos projets.
+Mot-clé class pour définir une classe (en fait une fonction!)
+
+Modules
+~~~~~~~
+Permettent de segmenter le code et de ne n'exporter que la partie "exposable"
+de l'API du module.
+
+Asynchronisme
+~~~~~~~~~~~~~
+Historiquement, pris en charge par des fonctions de callback (une fonction transmise
+à une fonction et appelée par cette dernière, potentiellement alors que l'exécution
+de cette dernière sera déjà terminée...).
+
+Pour simplifier les callbacks imbriqués et centraliser la gestion des erreurs, 
+ES6 introduit les Promise (promesses).
+
+D'un point de vue technique, une Promise est un objet disposant de 2 méthodes:
+.then(cb_suivant) ==> renvoie une promesse
+.catch()          ==> centralise la gestion des erreurs dans la pile des appels
+                        des callbacks
+.finally ()       ==> cb à traiter si erreur ou pas. 
+
+ES6 introduit la classe Promise, dont le construteur attend en paramètre 1 cb
+disposant de deux paramètres, chacun étant un cb (le premier le cb de résolution,
+le deuxième le cb de rejet de la promesse).
+
+Cette classe correspond à une reprise des Promise implémentées dans la bibliothèque 
+q.
+
+Itérables
+~~~~~~~~~
+Certains objets natifs de JS sont dits "Itérables" (tableaux, Map, Set): on peut les parcourir
+à l'aide de la structure for...of (l'itérateur de JS).
+Pour rendre un objet itérable, il suffit d'y définir une méthode Symbol.iterator renvoyant
+un objet Itérable, devant posséder une méthode next() renvoyant un objet disposant
+des deux attributs value et done.
+
+Générateurs
+~~~~~~~~~~~
+Type de fonction particulier renvoyant automatiquement un objet disposant d'une méthode
+next() proposant les propriétés value et done à l'utilisation du mot-clé yield.
+Pour créer un générateur:
+function* nomGenerateur(){
+    ...
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+let instance = nomGenerateur();
+instance.next().value; //1
+instance.next().value; //2
+
+instance.next().done;
+
+
+
+
+
+
+
+
+
+
+
+
+
